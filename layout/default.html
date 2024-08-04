@@ -13,6 +13,10 @@
     <link href='/css/markdown.css' rel='stylesheet'/>
 
     {% include mathjax.html %}
+
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include google-analytics.html %}
+    {% endif %}
 </head>
 <body>
 <div class='content'>
