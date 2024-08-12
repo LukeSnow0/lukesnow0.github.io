@@ -69,10 +69,10 @@ MathJax.Hub.Config({
         </p>
         <p>
                 Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
-            we ("inverse learner") reconstruct the cost function in its entirety? <br>
+            we ("inverse learner") reconstruct the cost function in its entirety? <br> <br>
 
                 We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
-                We exploit tools in the theory of Markov diffusion operators for our analysis. <br>
+                We exploit tools in the theory of Markov diffusion operators for our analysis. <br> <br>
 
                 Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
             a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
@@ -90,12 +90,12 @@ MathJax.Hub.Config({
 
         <p> 
             <img src="/assets/MD.png" 
-                style="width: 75%"/> 
+                style="width: 50%"/> 
         </p>
         <p>
                 The stable behavior of strategically interacting multi-agent systems is captured by equilibria concepts such as Nash equilibria. However, non-cooperative strategic equilibria often degrade
             the performance (utility attained) of each agent in the system. A goal of mechanism design is to fashion the game structure (mapping from agent actions to outcomes) such that 
-            <em> non-cooperative interactions lead to outcomes which maximize the performance (utility) of all agents</em>. <br>
+            <em> non-cooperative interactions lead to outcomes which maximize the performance (utility) of all agents</em>. <br> <br>
 
             We provide a novel algorithmic approach to accomplishing mechanism design adaptively, by iteratively interacting with the system and observing Nash equilibria. Our framework allows for mechanism
             design to be achieved <em> even when the designer has no knowledge of the agent utility functions</em>. We exploit tools from microeconomic revealed preference theory.
