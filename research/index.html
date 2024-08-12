@@ -65,12 +65,16 @@ MathJax.Hub.Config({
         <h3> Adaptive Inverse Learning via Passive Langevin Dynamics</h3>
         <p> 
             <img src="/assets/PSGLD.png" 
-                style="width: 60%"/>
-            Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
+                style="width: 75%"/> <br>
+            <pre>
+                Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
             we ("inverse learner") reconstruct the cost function in its entirety?
-            We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. Traditional inverse reinforcement learning
-            assumes a Markov Decision Process (MDP) environment and observations from a static optimal policy. Here we generalize: we assume only SGD in a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), 
-            and observations from the dynamic <em> transient </em> regime of learning. 
+                
+                We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
+                
+                Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
+            a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
+            </pre>
        </p>
         <p> 
             <em> Representative Publication:</em>
