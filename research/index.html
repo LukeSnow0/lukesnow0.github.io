@@ -58,38 +58,58 @@ MathJax.Hub.Config({
             "Intelligent" systems dynamically process environmental information and adapt their behavior according to some protocol, oftentimes to achieve a defined goal (e.g., RL agents, humans, strategic game-theoretic groups).
             My research generally addresses the following "inverse" concepts: given observations of an intelligent system, how can we recover the underlying generative mechanisms which drive it?
             How can we use these uncovered mechanisms to predict or manipulate the system? 
-            <br> <br>
+            <br> 
             Below are a few examples:
 
         </p>
         <h3> Adaptive Inverse Learning via Passive Langevin Dynamics</h3>
         <p> 
             <img src="/assets/PSGLD.png" 
-                style="width: 75%"/> <br>
+                style="width: 75%"/> 
+        </p>
+        <p>
                 Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
             we ("inverse learner") reconstruct the cost function in its entirety? <br>
-                <br>
+
                 We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
                 We exploit tools in the theory of Markov diffusion operators for our analysis. <br>
-                <br>
+
                 Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
             a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
        </p>
         <p> 
-            <em> Representative Publication:</em>
-        </p>
-         <p>
+            <em> Representative Publication:</em> <br>
+
             <span class="authors">Luke Snow, Vikram Krishnamurthy  </span><br>
             <span class="title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics </span><br>
             <span class="venue">62nd IEEE conference on Decision and Control</span>, 2023
             <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10383223'>[pdf]</a>
          </p>
 
-        <h1> Multi-Agent Intelligent Systems</h2>
+        <h3> Multi-Agent Intelligent Systems</h3>
 
-        <p>
-
+        <p> 
+            <img src="/assets/PSGLD.png" 
+                style="width: 75%"/> 
         </p>
+        <p>
+                Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
+            we ("inverse learner") reconstruct the cost function in its entirety? <br>
+
+                We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
+                We exploit tools in the theory of Markov diffusion operators for our analysis. <br>
+
+                Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
+            a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
+       </p>
+        <p> 
+            <em> Representative Publication:</em> <br>
+
+            <span class="authors">Luke Snow, Vikram Krishnamurthy  </span><br>
+            <span class="title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics </span><br>
+            <span class="venue">62nd IEEE conference on Decision and Control</span>, 2023
+            <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10383223'>[pdf]</a>
+         </p>
 
         <h2> Human-Sensor Interface </h2>
 
