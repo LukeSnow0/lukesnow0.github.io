@@ -58,7 +58,8 @@ MathJax.Hub.Config({
             "Intelligent" systems dynamically process environmental information and adapt their behavior according to some protocol, oftentimes to achieve a defined goal (e.g., RL agents, humans, strategic game-theoretic groups).
             My research generally addresses the following "inverse" concepts: given observations of an intelligent system, how can we recover the underlying generative mechanisms which drive it?
             How can we use these uncovered mechanisms to predict or manipulate the system? 
-            <br> <br>
+           </p>
+        <p>
             Below are a few examples, see my <a href='/publications'>publications</a> for a full list.
 
         </p> <br> 
@@ -69,11 +70,13 @@ MathJax.Hub.Config({
         </p>
         <p>
                 Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
-            we ("inverse learner") reconstruct the cost function in its entirety? <br> <br>
+            we ("inverse learner") reconstruct the cost function in its entirety? </p>
+        <p>
 
                 We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
-                We exploit tools in the theory of Markov diffusion operators for our analysis. <br> <br>
-
+                We exploit tools in the theory of Markov diffusion operators for our analysis. 
+        </p>
+        <p>
                 Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
             a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
        </p>
@@ -95,8 +98,10 @@ MathJax.Hub.Config({
         <p>
                 The stable behavior of strategically interacting multi-agent systems is captured by equilibria concepts such as Nash equilibria. However, non-cooperative strategic equilibria often degrade
             the performance (utility attained) of each agent in the system. A goal of mechanism design is to fashion the game structure (mapping from agent actions to outcomes) such that 
-            <em> non-cooperative interactions lead to outcomes which maximize the performance (utility) of all agents</em>. <br> <br>
-
+            <em> non-cooperative interactions lead to outcomes which maximize the performance (utility) of all agents</em>. 
+        </p>
+        
+        <p>
             We provide a novel algorithmic approach to accomplishing mechanism design adaptively, by iteratively interacting with the system and observing Nash equilibria. Our framework allows for mechanism
             design to be achieved <em> even when the designer has no knowledge of the agent utility functions</em>. We exploit tools from microeconomic revealed preference theory.
 
