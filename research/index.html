@@ -52,6 +52,8 @@ MathJax.Hub.Config({
         <li><a href='/personal'>Personal</a></li>
     </ul>
 </div>
+
+    <h2>Research</h2>
     <div id='blog' class='wrap'>
          I enjoy exploring sophisticated mathematical tools in stochastic analysis, in e.g., diffusion-operator theory, stochastic calculus and rough path theory, 
         in order to enhance the analysis and development of modern statistical machine learning and signal processing algorithms. My work finds application in:
@@ -66,31 +68,38 @@ MathJax.Hub.Config({
 
         </p> 
 
-         <h3> Efficient Neural SDE Training using Wiener-Space Cubature</h3>
-        <p> 
+        <section class="research-highlight" aria-labelledby="nsde-cubature-title">
+      <h3 id="nsde-cubature-title">Neural SDE Training via Wiener–Space Cubature</h3>
+
             <img src="/assets/PSGLD.png" 
                 style="width: 80%"/> 
-        </p>
-        <p>
-                Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
-            we ("inverse learner") reconstruct the cost function in its entirety? </p>
-        <p>
+      <p>
+        Neural stochastic differential equations (SDEs) parametrize SDE drift and diffusion vector fields as neural networks, 
+        providing an expressive model for time-series generative modeling.
+        They are trained by minimizing an expected loss over path space, capturing the discrepancy between induced sample paths and time-series data.
+        We introduce a cubature-based training method that replaces Monte Carlo neural SDE gradient evaluations with
+        weighted evaluations of <strong>deterministic ODE solutions</strong>. 
+      </p>
+      <p>    
+        This is a fundamental paradigm shift, enabling
+        ultra-efficient neural SDE training by bypassing Brownian path computations, exploiting memory-efficient parallel ODE solvers,
+        and reducing the number of paths needed for a given accuracy. Specifically, we show that this method achieves  <em>O</em>(n<sup>−1</sup>) convergence in path evaluations,
+            outperforming naïve Monte Carlo (<em>O</em>(n<sup>−1/2</sup>)) and quasi–Monte Carlo (<em>O</em>((log n)/n)).
+      </p>
+    
+      <p>
+        Mathematically, these guarantees are enabled by novel extensions of Wiener–space cubature guarantees to
+        <strong>Lipschitz–nonlinear path functionals</strong> necessary for diffusion training, yielding rigorous error bounds
+        for approximating expected objectives by deterministic ODE evaluations. 
+      </p>
 
-                We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
-                We exploit tools in the theory of Markov diffusion operators for our analysis. 
-        </p>
-        <p>
-                Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
-            a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
-       </p>
-        <p> 
-            <em> Representative Publication:</em> <br>
+        <em> Representative Publication:</em> <br>
 
-            <span class="authors">Luke Snow, Vikram Krishnamurthy  </span><br>
-            <span class="title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics </span><br>
-            <span class="venue">IEEE Transactions on Information Theory</span>, 2025
-            <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10943244'>[pdf]</a>
-         </p> 
+        <span class="authors">Luke Snow, Vikram Krishnamurthy  </span><br>
+        <span class="title">Efficient Neural SDE Training using Wiener-Space Cubature </span><br>
+        <span class="venue">arXiv:2502.12395</span>, 2025
+        <a class='label pdf-label' href='https://arxiv.org/abs/2502.12395'>[pdf]</a>
+    </section>
         
     <br>
 
