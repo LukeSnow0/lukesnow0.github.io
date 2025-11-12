@@ -1,0 +1,150 @@
+<html>
+<head>
+    <title>Research</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content="Luke Snow's site.">
+    <!-- A decent browser will parse this fine:
+         https://webmasters.stackexchange.com/questions/92744. -->
+    <meta name='keywords' content='
+        signal processing,
+        machine learning,
+        inverse reinforcement learning,
+        mechanism design,
+        game theory,
+        deep learning,
+        Langevin dynamics,
+        intelligent systems
+    '>
+    <meta name='author' content='Luke Snow'>
+
+    <link rel='shortcut icon' href='/assets/website/website.png' />
+    <link href='/css/blog.css' rel='stylesheet'/>
+
+    <script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  jax: ['input/TeX', 'output/HTML-CSS'],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['[[', ']]']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    extensions: ['color.js']
+  },
+  messageStyle: 'none',
+  'HTML-CSS': { preferredFont: 'TeX', availableFonts: ['STIX','TeX'] }
+});
+</script>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/about'>About</a></li>
+        <li><a href='/research'>Research</a></li>
+        <li><a href='/publications'>Publications</a></li>
+        <li><a href='/personal'>Personal</a></li>
+    </ul>
+</div>
+    <div id='blog' class='wrap'>
+        <h2> Research Overview: <em>Inverse Learning for Intelligent Systems </em> </h2>
+        <p>
+            "Intelligent" systems (e.g., RL agents, humans, strategic game-theoretic groups) dynamically process environmental information and adapt their behavior according to some protocol, often to achieve a defined goal.
+            My research generally addresses the following "inverse" concepts: given observations of an intelligent system, how can we recover the underlying generative mechanisms which drive it?
+            How can we use these uncovered mechanisms to predict or manipulate the system? 
+           </p>
+        <p>
+            Below are a few examples, see my <a href='/publications'>publications</a> for a full list.
+
+        </p> 
+        <h3> Adaptive Inverse Learning: <em> Passive Langevin Dynamics </em></h3>
+        <p> 
+            <img src="/assets/PSGLD.png" 
+                style="width: 80%"/> 
+        </p>
+        <p>
+                Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
+            we ("inverse learner") reconstruct the cost function in its entirety? </p>
+        <p>
+
+                We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
+                We exploit tools in the theory of Markov diffusion operators for our analysis. 
+        </p>
+        <p>
+                Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
+            a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
+       </p>
+        <p> 
+            <em> Representative Publication:</em> <br>
+
+            <span class="authors">Luke Snow, Vikram Krishnamurthy  </span><br>
+            <span class="title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics </span><br>
+            <span class="venue">IEEE Transactions on Information Theory</span>, 2025
+            <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10943244'>[pdf]</a>
+         </p> 
+        
+    <br>
+        
+        <h3> Multi-Agent Intelligent Systems: <em> Adaptive Mechanism Design </em></h3>
+
+        <p> 
+            <img src="/assets/MD.png" 
+                style="width: 45%"/> 
+        </p>
+        <p>
+                The stable behavior of strategically interacting multi-agent systems is captured by equilibria concepts such as Nash equilibria. However, non-cooperative strategic equilibria often degrade
+            the performance (utility attained) of each agent in the system. A goal of mechanism design is to fashion the game structure (mapping from agent actions to outcomes) such that 
+            <em> non-cooperative interactions lead to outcomes which maximize the performance (utility) of all agents</em>. 
+        </p>
+        
+        <p>
+            We provide a novel algorithmic approach to accomplishing mechanism design adaptively, by iteratively interacting with the system and observing Nash equilibria. Our framework allows for mechanism
+            design to be achieved <em> even when the designer has no knowledge of the agent utility functions</em>. We exploit tools from microeconomic revealed preference theory.
+
+       </p>
+        <p> 
+            <em> Representative Publication:</em> <br>
+
+            <span class="authors">Luke Snow, Vikram Krishnamurthy </span><br>
+             <span class="title">Data-Driven Mechanism Design using Multi-Agent Revealed Preferences </span><br>
+             <span class="venue">63rd IEEE Conference on Decision and Control</span>, 2024
+             <a class='label pdf-label' href='https://arxiv.org/abs/2404.15391'>[pdf]</a>
+         </p> 
+
+        <br>
+        
+        <h3> Human-Sensor Interface: <em> Optimal Change-Point Detection </em> </h3>
+        <p> 
+            <img src="/assets/QDT.PNG" 
+                style="width: 35%"/> 
+        </p>
+        <p>
+            Suppose a human makes decisions which are influenced by an underlying state of nature. How can one detect a change in the underlying state of nature by <em> only observing
+            these human decisions?</em> Such a scenario lends itself to e.g., detection of financial market shocks by observation of human investments or detection of adversarial strategy change
+            by individual-level monitoring.
+        </p>
+
+        <p>
+            We exploit a novel model for human decision-making, which generalizes traditional behavioral economics models, to capture structural properties of 
+            an optimal change-point detector in this setting. We characterize several mathematical properties such as its threshold policy behavior and its dependence on model parameters, e.g., 
+            the dependence of detection performance on the "rationality" of observed decisions. 
+
+       </p>
+        <p>
+            <em> Representative Publication:</em> <br>
+            <span class="authors">Luke Snow, Vikram Krishnamurthy, Brian M. Sadler  </span><br>
+             <span class="title">Quickest Detection for Human-Sensor Systems using Quantum Decision Theory </span><br>
+             <span class="venue">IEEE Transactions on Signal Processing</span>, 2024
+             <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10378874'>[pdf]</a>
+        </p>
+
+                
+    </div>
+</body>
+</html>
