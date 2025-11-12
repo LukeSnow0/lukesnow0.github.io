@@ -111,27 +111,25 @@ MathJax.Hub.Config({
     <br>
 
         
-        <h3> Adaptive Inverse Learning: <em> Passive Langevin Dynamics </em></h3>
+         <section class="research-highlight" aria-labelledby="passive-langevin-dynamics">
+      <h3 id="nsde-cubature-title">Passive Langevin Dynamics for Adaptive Inverse Reinforcement Learning</h3>
         <p> 
             <img src="/assets/PSGLD.png" 
                 style="width: 80%"/> 
         </p>
         <p>
-                Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
-            we ("inverse learner") reconstruct the cost function in its entirety? </p>
+                Suppose an agent enacts a stochastic optimization algorithm to minimize a cost function. By observing sequential noisy gradients from this process, how can 
+            we reconstruct the cost function in its entirety? This is a ganeralized transient-learning analog of inverse reinforcement learning (IRL), in which the reward function 
+        of a reinforcement learning agent is recovered by observing policy evaluations.</p>
         <p>
 
-                We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
-                We exploit tools in the theory of Markov diffusion operators for our analysis. 
+        We develop a <i>passive</i> stochastic gradient Langevin dynamics (PSGLD) algorithm which accomplishes this adaptive IRL objective, and provide sample complexity bounds for the cost function reconstruction accuracy,  
+        exploiting tools in the theory of Markov diffusion operators. 
         </p>
-        <p>
-                Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
-            a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
-       </p>
         <p> 
             <img src="/assets/CMDP_plot_a.png" 
-                style="width: 45%"/>  <img src="/assets/CMDP_plot_b.png" 
-                style="width: 45%"/> <br>
+                style="width: 50%"/>  <img src="/assets/CMDP_plot_b.png" 
+                style="width: 50%"/> <br>
            <center><img src="/assets/CMDP_plot_c.png" 
                 style="width: 100%"/> </center> 
             
