@@ -118,9 +118,9 @@ MathJax.Hub.Config({
                 style="width: 80%"/> 
         </p>
         <p>
-                Suppose an agent enacts a stochastic optimization algorithm to minimize a cost function. By observing sequential noisy gradients from this process, how can 
-            we reconstruct the cost function in its entirety? This is a ganeralized transient-learning analog of inverse reinforcement learning (IRL), in which the reward function 
-        of a reinforcement learning agent is recovered by observing policy evaluations.</p>
+        Suppose an agent enacts a stochastic optimization algorithm to minimize a cost function. By observing sequential noisy gradients from this process, how can 
+        we (an external observer) reconstruct this cost function in its entirety? This is a ganeralized transient-learning analog of inverse reinforcement learning (IRL), in which the reward function 
+        of a reinforcement learning agent is recovered by observing optimal policy evaluations.</p>
         <p>
 
         We develop a <i>passive</i> stochastic gradient Langevin dynamics (PSGLD) algorithm which accomplishes this adaptive IRL objective, and provide sample complexity bounds for the cost function reconstruction accuracy,  
@@ -144,7 +144,7 @@ MathJax.Hub.Config({
         
     <br>
         
-        <h3> Multi-Agent Intelligent Systems: <em> Adaptive Mechanism Design </em></h3>
+        <h3> Data-Driven Mechanism Design using Multi-Agent Revealed Preferences </h3>
 
         <p> 
             <img src="/assets/MD.png" 
@@ -158,9 +158,11 @@ MathJax.Hub.Config({
         
         <p>
             We provide a novel algorithmic approach to accomplishing mechanism design adaptively, by iteratively interacting with the system and observing Nash equilibria. Our framework allows for mechanism
-            design to be achieved <em> even when the designer has no knowledge of the agent utility functions</em>. We exploit tools from microeconomic revealed preference theory.
+            design to be achieved <em> even when the designer has no observation of the agent utilities</em>. We exploit tools from microeconomic revealed preference theory.
 
        </p>
+              <center><img src="/assets/AMD.png" 
+                style="width: 50%"/> </center> 
         <p> 
             <em> Representative Publication:</em> <br>
 
@@ -172,31 +174,6 @@ MathJax.Hub.Config({
 
         <br>
         
-        <h3> Human-Sensor Interface: <em> Optimal Change-Point Detection </em> </h3>
-        <p> 
-            <img src="/assets/QDT.PNG" 
-                style="width: 35%"/> 
-        </p>
-        <p>
-            Suppose a human makes decisions which are influenced by an underlying state of nature. How can one detect a change in the underlying state of nature by <em> only observing
-            these human decisions?</em> Such a scenario lends itself to e.g., detection of financial market shocks by observation of human investments or detection of adversarial strategy change
-            by individual-level monitoring.
-        </p>
-
-        <p>
-            We exploit a novel model for human decision-making, which generalizes traditional behavioral economics models, to capture structural properties of 
-            an optimal change-point detector in this setting. We characterize several mathematical properties such as its threshold policy behavior and its dependence on model parameters, e.g., 
-            the dependence of detection performance on the "rationality" of observed decisions. 
-
-       </p>
-        <p>
-            <em> Representative Publication:</em> <br>
-            <span class="authors">Luke Snow, Vikram Krishnamurthy, Brian M. Sadler  </span><br>
-             <span class="title">Quickest Detection for Human-Sensor Systems using Quantum Decision Theory </span><br>
-             <span class="venue">IEEE Transactions on Signal Processing</span>, 2024
-             <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10378874'>[pdf]</a>
-        </p>
-
                 
     </div>
 </body>
