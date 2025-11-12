@@ -53,17 +53,48 @@ MathJax.Hub.Config({
     </ul>
 </div>
     <div id='blog' class='wrap'>
-         <h1>I am interested in stochastic analysis and its application in:</h1>
+         I enjoy exploring sophisticated mathematical tools in stochastic analysis, in e.g., diffusion-operator theory, stochastic calculus and rough path theory, 
+        in order to enhance the analysis and development of modern statistical machine learning and signal processing algorithms. My work finds application in:
           <ul>
             <li>generative modeling</li>
             <li>inverse reinforcement learning</li>
             <li>algorithmic game theory</li>
           </ul>
-        this takes the form...
+        
         <p>
             Below are a few examples, see my <a href='/publications'>publications</a> for a full list.
 
         </p> 
+
+         <h3> Efficient Neural SDE Training using Wiener-Space Cubature</h3>
+        <p> 
+            <img src="/assets/PSGLD.png" 
+                style="width: 80%"/> 
+        </p>
+        <p>
+                Suppose an external agent ("forward learner") performs stochastic gradient descent (SGD) to optimize a cost function. By observing sequential noisy gradients from this process, how can 
+            we ("inverse learner") reconstruct the cost function in its entirety? </p>
+        <p>
+
+                We develop a passive stochastic gradient Langevin dynamics (PSGLD) algorithm to accomplish this, and provide finite-sample bounds for the reconstruction proximity. 
+                We exploit tools in the theory of Markov diffusion operators for our analysis. 
+        </p>
+        <p>
+                Traditional inverse reinforcement learning assumes a Markov Decision Process (MDP) environment and demonstrations from a static optimal policy. Here we generalize: we assume only SGD in 
+            a generic space (we can specialize to MDP optimization by considering policy gradient algorithms), and observations from the dynamic <em> transient </em> regime of learning. 
+       </p>
+        <p> 
+            <em> Representative Publication:</em> <br>
+
+            <span class="authors">Luke Snow, Vikram Krishnamurthy  </span><br>
+            <span class="title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics </span><br>
+            <span class="venue">IEEE Transactions on Information Theory</span>, 2025
+            <a class='label pdf-label' href='https://ieeexplore.ieee.org/abstract/document/10943244'>[pdf]</a>
+         </p> 
+        
+    <br>
+
+        
         <h3> Adaptive Inverse Learning: <em> Passive Langevin Dynamics </em></h3>
         <p> 
             <img src="/assets/PSGLD.png" 
