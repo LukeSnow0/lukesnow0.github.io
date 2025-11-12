@@ -74,9 +74,8 @@ MathJax.Hub.Config({
       <h3 id="nsde-cubature-title">Efficient Neural SDE Training via Wiener–Space Cubature</h3>
 
             <img src="/assets/nsde_train.png" 
-                style="width: 45%"/> 
-            <img src="/assets/convg_time5.png" 
-                style="width: 45%"/> 
+                style="width: 100%"/> 
+            
       <p>
         Neural stochastic differential equations (SDEs) parametrize SDE drift and diffusion vector fields as neural networks, 
         providing an expressive model for time-series generative modeling.
@@ -90,12 +89,14 @@ MathJax.Hub.Config({
         and reducing the number of paths needed for a given accuracy. Specifically, we show that this method achieves  <em>O</em>(n<sup>−1</sup>) convergence in path evaluations,
             outperforming naïve Monte Carlo (<em>O</em>(n<sup>−1/2</sup>)) and quasi–Monte Carlo (<em>O</em>((log n)/n)).
       </p>
-    
+    <img src="/assets/convg_time5.png" 
+                style="width: 80%"/> 
       <p>
         Mathematically, these guarantees are enabled by novel extensions of Wiener–space cubature guarantees to
         <strong>Lipschitz–nonlinear path functionals</strong> necessary for diffusion training, yielding rigorous error bounds
         for approximating expected objectives by deterministic ODE evaluations. 
       </p>
+            
 
         <em> Representative Publication:</em> <br>
 
