@@ -1,66 +1,1009 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LKV590FJ1S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luke Snow — Academic Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  gtag('config', 'G-LKV590FJ1S');
-</script>
-    
-    <title>Luke Snow</title>
-    <meta charset='UTF-8'>
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  :root {
+    --ink: #1a1916;
+    --ink-2: #4a4844;
+    --ink-3: #8a8880;
+    --paper: #f5f2ec;
+    --paper-2: #eceae3;
+    --rule: #d4d0c8;
+    --accent: #c8521a;
+    --accent-light: #e8c4a8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+  }
 
-    <meta name='description' content="Luke Snow\'s website.">
-    <!-- A decent browser will parse this fine:
-         https://webmasters.stackexchange.com/questions/92744. -->
-    <meta name='keywords' content='
-        statistical signal processing,
-        intelligent systems,
-        inverse reinforcement learning, 
-        mechanism design,
-        Langevin dynamics
-    '>
-    <meta name='author' content='Luke Snow'>
+  html { scroll-behavior: smooth; }
 
-    <link rel='shortcut icon' href='/assets/website/website.png' />
-    <link href='/css/blog.css' rel='stylesheet'/>
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
 
-    <script type='text/x-mathjax-config'>
-MathJax.Hub.Config({
-  jax: ['input/TeX', 'output/HTML-CSS'],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['[[', ']]']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    extensions: ['color.js']
-  },
-  messageStyle: 'none',
-  'HTML-CSS': { preferredFont: 'TeX', availableFonts: ['STIX','TeX'] }
-});
-</script>
+  /* === NAV === */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: var(--paper);
+    border-bottom: 0.5px solid var(--rule);
+  }
 
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-decoration: none;
+  }
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
-</script>
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-3);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* === HERO === */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+
+  .hero-left {
+    padding: 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 0.5px solid var(--rule);
+  }
+
+  .hero-kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-name {
+    font-size: clamp(52px, 5vw, 80px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2em;
+  }
+
+  .hero-name em { font-style: italic; color: var(--accent); }
+
+  .hero-title {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--ink-2);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .hero-bio {
+    font-size: 0.98rem;
+    color: var(--ink-2);
+    max-width: 460px;
+    line-height: 1.85;
+    border-left: 1.5px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+
+  .hero-bio a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-light);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .hero-bio a:hover { color: var(--accent); }
+
+  .hero-links {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .link-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    border: 0.5px solid var(--ink);
+    padding: 0.45rem 1.1rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .link-pill:hover { background: var(--ink); color: var(--paper); }
+  .link-pill.accent { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .link-pill.accent:hover { background: var(--ink); border-color: var(--ink); }
+
+  /* === HERO RIGHT === */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper-2);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+  }
+
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 0.5px solid var(--rule);
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(15%);
+  }
+
+  .hero-visual-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .hero-visual-bg svg { width: 100%; height: 100%; opacity: 0.1; }
+
+  .hero-awards {
+    position: relative;
+    width: 100%;
+    padding-top: 1.25rem;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .awards-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.6rem;
+  }
+
+  .award-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.2rem 0;
+  }
+
+  .award-year {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+  }
+
+  .award-text {
+    font-style: italic;
+    color: var(--ink-2);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .hero-affiliations {
+    position: relative;
+    width: 100%;
+  }
+
+  .affil-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.6rem;
+  }
+
+  .affil-list { list-style: none; }
+  .affil-list li {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-2);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 0.28rem 0;
+  }
+  .affil-list li:last-child { border-bottom: none; }
+  .affil-list a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .affil-list a:hover { color: var(--accent); }
+
+  /* === SECTION LAYOUT === */
+  section { border-top: 0.5px solid var(--rule); }
+
+  .section-inner {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+  }
+
+  .section-label {
+    padding: 4rem 2rem 4rem 3rem;
+    border-right: 0.5px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-2);
+  }
+
+  .section-content { padding: 4rem 4rem 4rem 3.5rem; }
+
+  /* === RESEARCH === */
+  .research-intro {
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    line-height: 1.85;
+    max-width: 680px;
+    margin-bottom: 3rem;
+    border-left: 1.5px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+
+  .research-areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 0.5px solid var(--rule);
+  }
+
+  .research-area {
+    padding: 1.75rem;
+    border-right: 0.5px solid var(--rule);
+  }
+  .research-area:last-child { border-right: none; }
+
+  .area-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .area-title {
+    font-size: 1.02rem;
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  .area-desc {
+    font-size: 0.85rem;
+    color: var(--ink-3);
+    line-height: 1.65;
+  }
+
+  /* === PUBLICATIONS === */
+  .pub-group { margin-bottom: 3rem; }
+  .pub-group:last-child { margin-bottom: 0; }
+
+  .pub-group-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .paper-list { display: flex; flex-direction: column; }
+
+  .paper-item {
+    padding: 1.5rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.25rem;
+  }
+  .paper-item:first-child { padding-top: 0; }
+  .paper-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .paper-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    padding-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .paper-title {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+
+  .paper-authors {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .paper-venue {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    margin-bottom: 0.6rem;
+  }
+
+  .paper-links { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+
+  .paper-link {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 0.5px solid var(--accent-light);
+    padding: 0.15rem 0.55rem;
+    transition: all 0.2s;
+  }
+  .paper-link:hover { background: var(--accent); color: var(--paper); }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border: 0.5px solid var(--rule);
+    padding: 0.15rem 0.55rem;
+  }
+
+  .tag.highlight {
+    color: var(--accent);
+    border-color: var(--accent-light);
+    background: rgba(200, 82, 26, 0.05);
+  }
+
+  /* === PERSONAL / WRITING === */
+  .writing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .writing-item {
+    padding: 2rem;
+    border: 0.5px solid var(--rule);
+    border-top: none; border-left: none;
+    transition: background 0.2s;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    cursor: pointer;
+  }
+  .writing-item:hover { background: var(--paper-2); }
+
+  .writing-cat {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .writing-title {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .writing-excerpt {
+    font-size: 0.88rem;
+    color: var(--ink-2);
+    line-height: 1.65;
+  }
+
+  .writing-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    margin-top: 1.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .writing-arrow {
+    position: absolute;
+    top: 2rem; right: 2rem;
+    font-size: 16px;
+    color: var(--ink-3);
+    transition: transform 0.2s, color 0.2s;
+  }
+  .writing-item:hover .writing-arrow { transform: translate(3px, -3px); color: var(--accent); }
+
+  /* === ABOUT === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-p {
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: var(--ink-2);
+    margin-bottom: 1.25rem;
+  }
+
+  .about-p a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-light);
+    text-underline-offset: 3px;
+  }
+  .about-p a:hover { color: var(--accent); }
+
+  .about-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1rem;
+  }
+
+  .interest-list { list-style: none; }
+  .interest-list li {
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    font-size: 0.93rem;
+    color: var(--ink-2);
+    font-style: italic;
+  }
+  .interest-list li:last-child { border-bottom: none; }
+
+  .contact-block {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .contact-links { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .contact-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent); }
+
+  /* === FOOTER === */
+  footer {
+    border-top: 0.5px solid var(--rule);
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--ink); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-kicker { animation: fadeUp 0.6s ease both; }
+  .hero-name   { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-title  { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-bio    { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-links  { animation: fadeUp 0.7s 0.4s ease both; }
+</style>
 </head>
-    
 <body>
-    <div id='blog' class='wrap'>
-        <br>
-        <br>
-        <h2>Luke Snow</h2>
-        <a href='/about'>About</a><br>
-        <a href='/research'>Research</a><br>
-        <a href='/publications'>Publications</a><br>
-        <a href='/personal'>Personal</a><br>
-        <!-- <div style="font-family: courier;">PhD Candidate, Cornell University</div>
-        <div style="font-family: courier;">las474[at]cornell[dot]edu</div> -->
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Luke Snow</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#personal">Personal</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://scholar.google.com/citations?user=m6W6H3YAAAAJ&hl=en" target="_blank">Scholar ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-kicker">Ph.D. Candidate — Cornell University ECE</p>
+    <h1 class="hero-name">Luke<br><em>Snow</em></h1>
+    <p class="hero-title">Statistical Signal Processing &amp; Machine Learning</p>
+    <p class="hero-bio">
+      PhD candidate in Electrical &amp; Computer Engineering at Cornell, advised by
+      <a href="https://vikram.ece.cornell.edu/" target="_blank">Prof. Vikram Krishnamurthy</a>.
+      My research sits at the intersection of statistical signal processing, stochastic analysis,
+      and algorithmic game theory — with applications in radar, multi-agent systems, and machine learning.
+      NSF Graduate Research Fellow and IEEE SPS Scholar.
+    </p>
+    <div class="hero-links">
+      <a href="#research" class="link-pill accent">Research</a>
+      <a href="#publications" class="link-pill">Publications</a>
+      <a href="https://scholar.google.com/citations?user=m6W6H3YAAAAJ&hl=en" target="_blank" class="link-pill">Scholar ↗</a>
+      <a href="mailto:las474@cornell.edu" class="link-pill">Email</a>
     </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual-bg">
+      <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="350" r="240" fill="none" stroke="#1a1916" stroke-width="0.5"/>
+        <circle cx="300" cy="350" r="180" fill="none" stroke="#1a1916" stroke-width="0.5"/>
+        <circle cx="300" cy="350" r="120" fill="none" stroke="#1a1916" stroke-width="0.5"/>
+        <circle cx="300" cy="350" r="60"  fill="none" stroke="#1a1916" stroke-width="0.5"/>
+        <line x1="60"  y1="350" x2="540" y2="350" stroke="#1a1916" stroke-width="0.5"/>
+        <line x1="300" y1="110" x2="300" y2="590" stroke="#1a1916" stroke-width="0.5"/>
+        <line x1="130" y1="180" x2="470" y2="520" stroke="#1a1916" stroke-width="0.5"/>
+        <line x1="470" y1="180" x2="130" y2="520" stroke="#1a1916" stroke-width="0.5"/>
+        <ellipse cx="300" cy="350" rx="240" ry="80"  fill="none" stroke="#1a1916" stroke-width="0.3"/>
+        <ellipse cx="300" cy="350" rx="80"  ry="240" fill="none" stroke="#1a1916" stroke-width="0.3"/>
+      </svg>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <img class="hero-photo"
+           src="https://lukesnow0.github.io/assets/headshotv4_sq.jpg"
+           alt="Luke Snow">
+    </div>
+
+    <div class="hero-awards">
+      <p class="awards-label">Awards &amp; Fellowships</p>
+      <div class="award-item">
+        <span class="award-year">2024</span>
+        <span class="award-text">IEEE Signal Processing Society Scholar</span>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2021</span>
+        <span class="award-text">NSF Graduate Research Fellow</span>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2021</span>
+        <span class="award-text">Clemson W.M. Riggs Award — Outstanding Senior in EE</span>
+      </div>
+    </div>
+
+    <div class="hero-affiliations">
+      <p class="affil-label">Affiliations</p>
+      <ul class="affil-list">
+        <li><a href="https://sites.coecis.cornell.edu/ssplab/" target="_blank">Cornell Statistical Signal Processing Lab</a></li>
+        <li><a href="https://find.engineering.cornell.edu/" target="_blank">FIND Research Collective</a></li>
+        <li><a href="https://www.basis.ai/" target="_blank">Basis Research Institute (Summer 2025)</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-num">01</span>
+      <span class="section-title">Research</span>
+    </div>
+    <div class="section-content">
+      <p class="research-intro">
+        My work bridges statistical signal processing, stochastic analysis, and algorithmic game theory.
+        A unifying theme is using principled mathematical structure — from Langevin dynamics to Malliavin
+        calculus — to build data-driven algorithms for complex multi-agent and sensing environments.
+      </p>
+      <div class="research-areas">
+        <div class="research-area">
+          <span class="area-num">i.</span>
+          <h3 class="area-title">Inverse Reinforcement Learning &amp; Game Theory</h3>
+          <p class="area-desc">Recovering agent objectives from observed behavior in multi-agent settings; applications to radar coordination detection and mechanism design.</p>
+        </div>
+        <div class="research-area">
+          <span class="area-num">ii.</span>
+          <h3 class="area-title">Stochastic Analysis &amp; Neural SDEs</h3>
+          <p class="area-desc">Wiener-space cubature for efficient neural SDE training; Malliavin calculus for counterfactual stochastic optimization.</p>
+        </div>
+        <div class="research-area">
+          <span class="area-num">iii.</span>
+          <h3 class="area-title">Quickest Detection &amp; Decision Theory</h3>
+          <p class="area-desc">Sequential change detection in human-sensor systems using quantum and time-inconsistent decision models; cognitive radar networks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-num">02</span>
+      <span class="section-title">Publications</span>
+    </div>
+    <div class="section-content">
+
+      <div class="pub-group">
+        <p class="pub-group-title">Journal Papers</p>
+        <div class="paper-list">
+
+          <div class="paper-item">
+            <span class="paper-year">2026</span>
+            <div>
+              <h3 class="paper-title">Multi-Agent Inverse Reinforcement Learning for Radar-based Detection of Pareto-Efficient UAV Coordination</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">IEEE Transactions on Aerospace and Electronic Systems</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/11400656" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2025</span>
+            <div>
+              <h3 class="paper-title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">IEEE Transactions on Information Theory</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/document/10943244" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2024</span>
+            <div>
+              <h3 class="paper-title">Quickest Detection for Human-Sensor Systems using Quantum Decision Theory</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy, Brian M. Sadler</p>
+              <p class="paper-venue">IEEE Transactions on Signal Processing</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10378874" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2024</span>
+            <div>
+              <h3 class="paper-title">Lyapunov-based Stochastic Stability of a Quantum Decision System for Human-Machine Interaction</h3>
+              <p class="paper-authors">Luke Snow*, Shashwat Jain*, Vikram Krishnamurthy &nbsp;<span style="font-size:10px;color:var(--ink-3);">* equal contribution</span></p>
+              <p class="paper-venue">Automatica</p>
+              <div class="paper-links"><a class="paper-link" href="https://www.sciencedirect.com/science/article/abs/pii/S0005109824001213" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pub-group">
+        <p class="pub-group-title">Conference Proceedings</p>
+        <div class="paper-list">
+
+          <div class="paper-item">
+            <span class="paper-year">2024</span>
+            <div>
+              <h3 class="paper-title">Adaptive Mechanism Design using Multi-Agent Revealed Preferences</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">63rd IEEE Conference on Decision and Control</p>
+              <div class="paper-links"><a class="paper-link" href="https://arxiv.org/abs/2404.15391" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2023</span>
+            <div>
+              <h3 class="paper-title">Finite-Sample Bounds for Adaptive Inverse Reinforcement Learning using Passive Langevin Dynamics</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">62nd IEEE Conference on Decision and Control</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10383223" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2023</span>
+            <div>
+              <h3 class="paper-title">Statistical Detection of Coordination in a Cognitive Radar Network through Inverse Multi-Objective Optimization</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy, Brian M. Sadler</p>
+              <p class="paper-venue">26th International Conference on Information Fusion</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10224095" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2023</span>
+            <div>
+              <h3 class="paper-title">Identifying Coordination in a Cognitive Radar Network — a Multi-Objective Inverse Reinforcement Learning Approach</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy, Brian M. Sadler</p>
+              <p class="paper-venue">IEEE ICASSP</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10096376" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2022</span>
+            <div>
+              <h3 class="paper-title">Malliavin Calculus with Weak Derivatives for Counterfactual Stochastic Optimization</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">59th Annual Allerton Conference</p>
+              <div class="paper-links"><a class="paper-link" href="https://www.ideals.illinois.edu/items/137338" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2022</span>
+            <div>
+              <h3 class="paper-title">Quickest Change Detection using Time Inconsistent Anticipatory and Quantum Decision Modeling</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">58th Annual Allerton Conference</p>
+              <div class="paper-links"><a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/9929427" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pub-group">
+        <p class="pub-group-title">Preprints</p>
+        <div class="paper-list">
+
+          <div class="paper-item">
+            <span class="paper-year">2025</span>
+            <div>
+              <h3 class="paper-title">Efficient Neural SDE Training using Wiener-Space Cubature</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">arXiv:2502.12395</p>
+              <div class="paper-links">
+                <a class="paper-link" href="https://arxiv.org/abs/2502.12395" target="_blank">PDF ↗</a>
+                <span class="tag highlight">New</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2025</span>
+            <div>
+              <h3 class="paper-title">Malliavin Calculus with Weak Derivatives for Counterfactual Stochastic Optimization</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">arXiv:2510.00297</p>
+              <div class="paper-links"><a class="paper-link" href="https://arxiv.org/abs/2510.00297" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2025</span>
+            <div>
+              <h3 class="paper-title">Multi-Agent Inverse Reinforcement Learning for Identifying Pareto-Efficient Coordination — A Distributionally Robust Approach</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">arXiv:2509.08956</p>
+              <div class="paper-links"><a class="paper-link" href="https://arxiv.org/abs/2509.08956" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <span class="paper-year">2025</span>
+            <div>
+              <h3 class="paper-title">Data-Driven Automated Mechanism Design using Multi-Agent Revealed Preferences</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">arXiv:2404.15391</p>
+              <div class="paper-links"><a class="paper-link" href="https://arxiv.org/abs/2404.15391" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pub-group">
+        <p class="pub-group-title">Textbook Chapters</p>
+        <div class="paper-list">
+          <div class="paper-item">
+            <span class="paper-year">2025</span>
+            <div>
+              <h3 class="paper-title">Multi-Agent Inverse Learning for Sensor Networks: Identifying Coordination in UAV Networks</h3>
+              <p class="paper-authors">Luke Snow, Vikram Krishnamurthy</p>
+              <p class="paper-venue">Wireless Sensor Networks in Smart Environments, Wiley</p>
+              <div class="paper-links"><a class="paper-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781394249879.ch13" target="_blank">PDF ↗</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL -->
+<section id="personal">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-num">03</span>
+      <span class="section-title">Personal</span>
+    </div>
+    <div class="section-content" style="padding: 0;">
+      <div class="writing-grid">
+
+        <div class="writing-item">
+          <p class="writing-cat">Literature &amp; Philosophy</p>
+          <h3 class="writing-title">Currently reading: Hegel's Realm of Shadows</h3>
+          <p class="writing-excerpt">Robert Pippin on logic as metaphysics in the Science of Logic — on the boundary between analytic philosophy and the idealist tradition.</p>
+          <p class="writing-date">Reading now</p>
+          <span class="writing-arrow">↗</span>
+        </div>
+
+        <a class="writing-item" href="https://letterboxd.com/LukeSnow/" target="_blank">
+          <p class="writing-cat">Film</p>
+          <h3 class="writing-title">Letterboxd diary</h3>
+          <p class="writing-excerpt">A running log of films watched, with occasional notes and ratings.</p>
+          <p class="writing-date">Letterboxd ↗</p>
+          <span class="writing-arrow">↗</span>
+        </a>
+
+        <a class="writing-item" href="https://lukesnow0.github.io/blog/traveltest/" target="_blank">
+          <p class="writing-cat">Travel</p>
+          <h3 class="writing-title">Photo galleries from the PhD years</h3>
+          <p class="writing-excerpt">Fortunate to have traveled to some remarkable places during grad school. Photo galleries from those trips.</p>
+          <p class="writing-date">View galleries ↗</p>
+          <span class="writing-arrow">↗</span>
+        </a>
+
+        <a class="writing-item" href="https://lukesnow0.github.io/blog/academictree/" target="_blank">
+          <p class="writing-cat">Curiosity</p>
+          <h3 class="writing-title">An academic lineage back to Fourier and Lagrange</h3>
+          <p class="writing-excerpt">Tracing advisor relationships back through the centuries to two of mathematics' foundational figures.</p>
+          <p class="writing-date">Explore tree ↗</p>
+          <span class="writing-arrow">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-num">04</span>
+      <span class="section-title">About</span>
+    </div>
+    <div class="section-content">
+      <div class="about-grid">
+
+        <div>
+          <p class="about-p">
+            I'm a PhD candidate in the <a href="https://www.ece.cornell.edu/ece" target="_blank">Electrical &amp; Computer Engineering Department</a>
+            at Cornell University, advised by <a href="https://vikram.ece.cornell.edu/" target="_blank">Prof. Vikram Krishnamurthy</a>.
+            In 2021 I graduated from <a href="https://www.clemson.edu/" target="_blank">Clemson University</a> with a B.S. in electrical
+            engineering and a minor in mathematics.
+          </p>
+          <p class="about-p">
+            I have professional experience in radar and intelligent systems analysis through internships with the
+            <a href="https://arl.devcom.army.mil/" target="_blank">U.S. Army Research Laboratory</a> (2022),
+            <a href="https://www.ll.mit.edu/" target="_blank">MIT Lincoln Laboratory</a> (2021), and
+            <a href="https://www.leidos.com/insights/dynetics" target="_blank">Leidos Dynetics</a> (2019).
+            This summer I am joining <a href="https://www.basis.ai/" target="_blank">Basis Research Institute</a> as a research intern.
+          </p>
+          <p class="about-p">
+            I am a member of the Cornell <a href="https://sites.coecis.cornell.edu/ssplab/" target="_blank">Statistical Signal Processing Lab</a>
+            and affiliated with the <a href="https://find.engineering.cornell.edu/" target="_blank">FIND</a> research collective.
+          </p>
+
+          <div class="contact-block">
+            <p class="about-label">Contact &amp; Links</p>
+            <p style="font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin-bottom: 0.5rem;">las474 [at] cornell [dot] edu</p>
+            <div class="contact-links">
+              <a class="contact-link" href="https://scholar.google.com/citations?user=m6W6H3YAAAAJ&hl=en" target="_blank">Google Scholar ↗</a>
+              <a class="contact-link" href="https://www.linkedin.com/in/luke-snow-942524177/" target="_blank">LinkedIn ↗</a>
+              <a class="contact-link" href="https://github.com/LukeSnow0" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="about-label">Outside the lab</p>
+          <ul class="interest-list">
+            <li>Grew up playing baseball; nowadays recreational golf and tennis</li>
+            <li>Reading at the intersection of philosophy and logic — currently Pippin on Hegel</li>
+            <li>Cinema — running diary on Letterboxd</li>
+            <li>Travel photography from the PhD years</li>
+            <li>An academic tree tracing back to Fourier and Lagrange</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Luke Snow — Cornell University ECE</span>
+  <ul class="footer-links">
+    <li><a href="https://scholar.google.com/citations?user=m6W6H3YAAAAJ&hl=en" target="_blank">Google Scholar ↗</a></li>
+    <li><a href="https://github.com/LukeSnow0" target="_blank">GitHub ↗</a></li>
+    <li><a href="https://www.linkedin.com/in/luke-snow-942524177/" target="_blank">LinkedIn ↗</a></li>
+  </ul>
+</footer>
+
 </body>
 </html>
